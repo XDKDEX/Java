@@ -31,13 +31,12 @@ public class Main {
         public static void main(String[] args) {
                 try {
                         ServerSocket SSocket = new ServerSocket(8090);
-                        System.out.println("启动服务器....");
+                        System.out.println("Starting....");
                         while (true) {
                                 Socket sSocket  = SSocket.accept();
                                 BufferedReader br = new BufferedReader(new InputStreamReader(sSocket.getInputStream()));
-                                // 读取客户端发送来的消息
                                 String mess = br.readLine();
-                                System.out.println("客户端：" + mess);
+                                System.out.println("Client:" + mess);
                                 String[] buff = mess.split(" ");
                                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(sSocket.getOutputStream()));
                                 bw.write(data(buff[1]));
